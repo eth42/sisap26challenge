@@ -1,0 +1,10 @@
+[submodule "hiob"]
+	path = hiob
+	url = https://github.com/eth42/hiob.git
+	branch = affine-hiob2
+[submodule "GraphIndexAPI"]
+	path = GraphIndexAPI
+	url = https://github.com/eth42/GraphIndexAPI.git
+[submodule "GraphIndexBaselines"]
+	path = GraphIndexBaselines
+	url = https://github.com/eth42/GraphIndexBaselines.git
