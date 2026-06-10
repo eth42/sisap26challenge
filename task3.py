@@ -13,7 +13,7 @@ import hiob
 
 from util import *
 
-_ALGO = "HotSwap"
+_ALGO = "HaNSWurst"
 _TASK = "task3"
 _N_DIMS = 30_522
 

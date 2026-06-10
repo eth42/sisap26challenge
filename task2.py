@@ -9,7 +9,7 @@ import hiob
 
 from util import *
 
-_ALGO = "HotSwap"
+_ALGO = "HaNSWurst"
 _TASK = "task2"
 
 def make_output(args, n, build_time, query_time, qresult, true_nn_ids):
