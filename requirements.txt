@@ -1,4 +1,7 @@
 numpy
+scipy
 h5py
-maturin
 matplotlib
+tqdm
+patchelf
+maturin

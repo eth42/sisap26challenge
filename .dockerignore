@@ -1,0 +1,5 @@
+pyenv/
+__pycache__/
+.gitmodules
+data/
+_*

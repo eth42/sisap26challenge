@@ -8,7 +8,7 @@ source pyenv/bin/activate
 run_1() {
 	tira-cli code-submission \
 		--path . \
-		--command 'runner.py --input $inputDataset/*.h5 --task-description $inputDataset/config.json --output $outputDir' \
+		--command 'python /app/runner.py --input $inputDataset/*.h5 --task-description $inputDataset/config.json --output $outputDir' \
 		--task sisap-2026 \
 		--dataset task-1-spot-check-20260528-training \
 		--dry-run
@@ -16,17 +16,17 @@ run_1() {
 run_2() {
 	tira-cli code-submission \
 		--path . \
-		--command 'runner.py --input $inputDataset/*.h5 --task-description $inputDataset/config.json --output $outputDir' \
+		--command 'ls -hal /app; python /app/runner.py --input $inputDataset/*.h5 --task-description $inputDataset/config.json --output $outputDir' \
 		--task sisap-2026 \
 		--dataset task-2-spot-check-20260528-training \
-		--dry-run
+		--dry-run --verbose
 }
 run_3() {
 	tira-cli code-submission \
 		--path . \
-		--command 'runner.py --input $inputDataset/*.h5 --task-description $inputDataset/config.json --output $outputDir' \
+		--command 'python /app/runner.py --input $inputDataset/*.h5 --task-description $inputDataset/config.json --output $outputDir' \
 		--task sisap-2026 \
-		--dataset task-3-spot-check-20260528-training \
+		--dataset task-3-spot-check-20260529-training \
 		--dry-run
 }
 
