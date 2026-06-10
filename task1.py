@@ -19,7 +19,6 @@ _TASK = "task1"
 
 def make_output(args, n, build_time, query_time, qresult, true_nn_ids, **additional_attrs):
 	outpath = os.path.join(args.output,f"{_ALGO}_ef={n}.h5")
-	# outpath = os.path.join(args.output,_TASK,f"HotSwap_ef={n}.h5")
 	os.makedirs(os.path.dirname(outpath),exist_ok=True)
 	with h5py.File(outpath,"w") as f_out:
 		# Write arrays
@@ -32,6 +31,7 @@ def make_output(args, n, build_time, query_time, qresult, true_nn_ids, **additio
 		f_out.attrs["querytime"] = query_time
 		f_out.attrs["params"] = f"ef={n}"
 		f_out.attrs["recall"] = recall(qresult[0], true_nn_ids)
+		f_out.attrs["dataset"] = args.task_description["dataset_name"]
 		for k,v in additional_attrs.items(): f_out.attrs[k] = v
 def run(args):
 	print(args)
