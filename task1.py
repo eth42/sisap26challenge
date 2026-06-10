@@ -23,7 +23,7 @@ def make_output(args, n, build_time, query_time, qresult, true_nn_ids, **additio
 	with h5py.File(outpath,"w") as f_out:
 		# Write arrays
 		f_out["knns"] = qresult[0]+1
-		f_out["dists"] = qresult[1]
+		f_out["dists"] = -qresult[1]
 		# Write attributes
 		f_out.attrs["algo"] = _ALGO
 		f_out.attrs["task"] = _TASK
