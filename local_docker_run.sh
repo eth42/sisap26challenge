@@ -31,16 +31,35 @@
 # Parse options to swap to small datasets
 tasks="1 2 3"
 small=false
+test=false
 for arg in "$@"; do
 	if [[ "$arg" == "--small" ]];
 	then small=true
+	else if [[ "$arg" == "--test" ]];
+	then test=true
 	else tasks=$arg
-	fi
+	fi fi
 done
 
 for task in $tasks; do
 	echo Running Task $task
-	if [[ "$small" == false ]]; then
+	if [[ "$small" == true ]]; then
+		# Big datasets
+		case $task in
+			1) dataset="wikipedia-small" ;;
+			2) dataset="llama-dev" ;;
+			3) dataset="fiqa-dev" ;;
+			*) echo "Task $task not recognized."; exit 1;
+		esac
+	else if [[ "$test" == true ]]; then
+		# small datasets
+		case $task in
+			1) dataset="task-1-spot-check" ;;
+			2) dataset="task-2-spot-check" ;;
+			3) dataset="task-3-spot-check" ;;
+			*) echo "Task $task not recognized."; exit 1;
+		esac
+	else
 		# Big datasets
 		case $task in
 			1) dataset="wikipedia" ;;
@@ -48,15 +67,7 @@ for task in $tasks; do
 			3) dataset="nq" ;;
 			*) echo "Task $task not recognized."; exit 1;
 		esac
-	else
-		# small datasets
-		case $task in
-			1) dataset="wikipedia-small" ;;
-			2) dataset="llama-dev" ;;
-			3) dataset="fiqa-dev" ;;
-			*) echo "Task $task not recognized."; exit 1;
-		esac
-	fi
+	fi fi
 	mkdir -p results/$dataset
 	chmod a+rwx results/$dataset
 	h5name="$(basename $(ls data/$dataset/*.h5))"

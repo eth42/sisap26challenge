@@ -47,7 +47,7 @@ def run(args):
 		if type(_true_knn_path) == list: _true_knn_path = "/".join(_true_knn_path)
 		true_nn_ids = np.array(f[_true_knn_path])-1
 		k = args.task_description["k"]
-		true_nn_ids = true_nn_ids[:,:k]
+		true_nn_ids = true_nn_ids[:,1:k+1]
 		assert true_nn_ids.shape[0] == f[args.task_description["data"]].shape[0]
 		assert true_nn_ids.shape[1] == k
 	if 1: # Hyperparameters
