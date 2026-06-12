@@ -65,7 +65,8 @@ def run(args):
 		cap_const = None
 		cap_query = 20
 		# Queries
-		ns = np.round(np.exp(np.linspace(np.log(40),np.log(150),15))).astype(int)
+		# ns = np.round(np.exp(np.linspace(np.log(40),np.log(150),15))).astype(int)
+		ns = np.round(np.exp(np.linspace(np.log(15),np.log(150),15))).astype(int)
 	if 1: # Parameter sets
 		# Arguments for the sketcher holding the dataset during training
 		base_sketcher_kwargs = dict(
