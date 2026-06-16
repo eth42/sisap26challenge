@@ -63,7 +63,7 @@ def run(args):
 		dist_query = lambda: gib.NegDotProduct()
 		degree = 50
 		cap_const = None
-		cap_query = 20
+		cap_query = 10
 		# Queries
 		# ns = np.round(np.exp(np.linspace(np.log(40),np.log(150),15))).astype(int)
 		ns = np.round(np.exp(np.linspace(np.log(15),np.log(150),15))).astype(int)
